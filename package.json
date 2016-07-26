@@ -1,18 +1,18 @@
 {
-  "name": "ygo-ascension",
-  "version": "0.0.1",
-  "description": "Yu-Gi-Oh Game Development Parody",
-  "main": "server/server.js",
-  "scripts": {
-    "test": "instanbul coverage ./mocha test/test.js --"
-  },
-  "author": "Jamezs (AccessDenied)",
-  "license": "MIT",
-  "devDependencies": {
-    "istanbul": "^0.4.4",
-    "mocha": "^2.5.3"
-  },
-  "dependencies": {
-    "electron-prebuilt": "^1.3.0"
-  }
+    "name": "ygo-ascension",
+    "version": "0.0.1",
+    "description": "Yu-Gi-Oh Game Development Parody",
+    "main": "server/server.js",
+    "scripts": {
+        "test": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --ui bdd -R spec -t 5000"
+    },
+    "author": "Jamezs (AccessDenied)",
+    "license": "MIT",
+    "devDependencies": {
+        "istanbul": "^0.4.4",
+        "mocha": "^2.5.3"
+    },
+    "dependencies": {
+        "electron-prebuilt": "^1.3.0"
+    }
 }
