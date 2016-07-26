@@ -1,0 +1,11 @@
+{
+  "name": "ygo-ascension",
+  "version": "0.0.1",
+  "description": "Yu-Gi-Oh Game Development Parody",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "instanbul coverage ./mocha test/test.js --"
+  },
+  "author": "Jamezs (AccessDenied)",
+  "license": "MIT"
+}
