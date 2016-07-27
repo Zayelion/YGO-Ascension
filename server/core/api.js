@@ -19,6 +19,10 @@ function shuffle(array) {
 
 }
 
+function new_card(duel, code, owner, playerid, location, sequence, position) {
+    if (duel.game_field.is_location_useable(playerid, location, sequence)) {}
+}
+
 function set_player_info(duel, player_id, lifepoints, start_count, draws_count) {
     var player = {
         lp: lifepoints,
@@ -35,8 +39,6 @@ function set_player_info(duel, player_id, lifepoints, start_count, draws_count) 
         list_grave: new Array(30),
         list_remove: new Array(30),
         list_extra: new Array(15)
-
-
     };
 
     duel.core.shuffle_deck_check[player_id] = false;
@@ -76,19 +78,29 @@ function create_duel(seed) {
         }
     };
 
-    function is_location_useable(playerid, location, sequence) {
+    duel.game_field.is_location_useable = function is_location_useable(playerid, location, sequence) {
 
         var player = duel.game_field.player,
             flag = player[playerid].disabled_location | player[playerid].used_location;
         if (location !== enums.LOCATION_MZONE && location !== enums.LOCATION_SZONE) {
             return true;
         }
-    }
+        if (location === enums.LOCATION_MZONE && flag & (1 << sequence)) {
+            return false;
+        }
+        if (location === enums.LOCATION_SZONE && flag & (256 << sequence)) {
+            return false;
+        }
+        return true;
+
+    };
+
     return duel;
 }
 module.exports = {
     seed: seed,
     shuffle: shuffle,
     create_duel: create_duel,
-    set_player_info: set_player_info
+    set_player_info: set_player_info,
+    new_card: new_card
 };
