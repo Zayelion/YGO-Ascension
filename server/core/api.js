@@ -20,7 +20,9 @@ function shuffle(array) {
 }
 
 function new_card(duel, code, owner, playerid, location, sequence, position) {
-    if (duel.game_field.is_location_useable(playerid, location, sequence)) {}
+    if (duel.game_field.is_location_useable(playerid, location, sequence)) {
+        var card = new Card(code);
+    }
 }
 
 function set_player_info(duel, player_id, lifepoints, start_count, draws_count) {
@@ -78,6 +80,9 @@ function create_duel(seed) {
         }
     };
 
+    duel.new_card = function new_card(code) {
+
+    };
     duel.game_field.is_location_useable = function is_location_useable(playerid, location, sequence) {
 
         var player = duel.game_field.player,
