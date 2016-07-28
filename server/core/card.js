@@ -5,7 +5,6 @@ function Card(code) {
     var card = {
         scrtype: 0,
         ref_handle: 0,
-
         data: {},
         previous: {},
         temp: {},

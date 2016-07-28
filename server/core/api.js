@@ -2,7 +2,8 @@
 'use strict';
 
 var LuaVM = require('lua.vm.js'),
-    enums = require('./enums.js');
+    enums = require('./enums.js'),
+    Card = require('./card.js');
 
 function seed() {
     return Math.floor(Math.random() * (4294967295));
@@ -22,6 +23,19 @@ function shuffle(array) {
 function new_card(duel, code, owner, playerid, location, sequence, position) {
     if (duel.game_field.is_location_useable(playerid, location, sequence)) {
         var card = new Card(code);
+        card.owner = owner;
+        duel.game_field.add_card(playerid, card, location, sequence);
+        card.current.position = position;
+        if (!(location & enums.LOCATION_ONFIELD) || (position & enums.POS_FACEUP)) {
+            card.enable_field_effect(true);
+            duel.game_field.adjust_instant();
+        }
+        if (location & enums.LOCATION_ONFIELD) {
+            if (location === enums.LOCATION_MZONE) {
+                card.set_status(enums.STATUS_PROC_COMPLETE, true);
+            }
+        }
+
     }
 }
 
