@@ -1,14 +1,11 @@
 #Opening Letter to the Community
->Dear Konami Executive,
-Fuck you for being so incompetent. To show you how incompetent you are I'm going to parody your work for the sake of teaching others how not to be an unapologic tyranical failure of an intellectual property manager.
-
->Dear Developer,
-Fuck you for not taking my pull request, not writing unit test, breaking API on every commit, making my life a general hell with buggy software, sending a god damn psychopath after me, making me deal with your megalomanical staffers, your "Im not powerful enough staffers", and causing a social malestrom that likely resulted in the suicide of a few teenagers.
-
->Dear User,
-Fuck you. For waking me, yelling at me, telling me off when I try to help you and basically being a childish fuck nugget.
+> I'm building this application out of pure frustration and I invite the community to follow me in this adventure. This project is an education tool that will parody the poor game development cycle of Konami and its strategic partners. I want this project to serve as a lesson to AAA game development studios on how to properly make money in this economic climate without abusing an IP's source material. Konami waste millions of dollars developing games no one wants for an IP everyone loves, when things like Heartstone rake in the cash. Niantic's servers are at max and profits soaring, and the mobile market is growing.
 
 #Contributing
+To conribute first write up a requirement, this is manditory. Do a pull request for that requirement and if the community likes it we will add it to our specification. Then you can do a pull request of the new feature. The feature must have test covering it and not bring the total test coverage of the system down below 85%.
+
+#Installation
+Install `node` or `nodist`, then `npm install` in the source directory. 
 
 #Licence (MIT)
 Copyright (c) 2016 James Gladney, SalvationDevelopment
